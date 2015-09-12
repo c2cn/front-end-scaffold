@@ -1,0 +1,59 @@
+@charset "utf-8";
+@import "compass";
+@import "compass/layout/";
+@import "_variables";
+
+@import "compass/reset";
+*, :before, :after{
+    @include box-sizing(border-box);
+}
+html{
+    font-size: 62.5%;// 10px
+}
+body{
+    font-size: 12px;
+}
+
+@import "_type";// 排版
+
+
+img[src=""] {// for test and find no src img
+    @include background-image(linear-gradient(120deg, #2ac363, #cd8c14, #9c4cc2));
+    position: relative;
+    &:after{
+        content: 'src空';//
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+        @include stretch;
+    }
+}
+
+@mixin clearfix(){// 还有另外的几个见 http://compass-style.org/reference/compass/utilities/general/clearfix/
+    @include pie-clearfix();
+}
+
+.clearfix{
+    @include clearfix();
+}
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.container{
+	max-width: 120rem;
+	margin-left: auto;
+	margin-right: auto;
+    @include clearfix();
+}
+
+// layout
+@import "kite.scss";
+@import "_grid.scss";
+
+
+

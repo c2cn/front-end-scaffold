@@ -1,0 +1,138 @@
+@charset "utf-8";
+@import "common";
+@import "_text";
+@import "compass/layout/stretching";
+@import "compass/css3";
+@import "compass/utilities";
+// compass 中应该定义了的。。。
+$selection-support-threshold: 0.1;
+@mixin selection($background-color: null, $color: contrast-color($background-color)) {
+    @include with-each-prefix(css-selection, $selection-support-threshold) {
+        $selector: "";
+        @if $current-prefix !=null {
+            $selector: $current-prefix + "-";
+        }
+        $selector: "&::#{$selector}selection";
+        #{$selector}{
+            color: $color;
+            background-color: $background-color;
+            @content;
+        }
+    }
+}
+
+.place-holder-img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.stretch {
+    position: relative; //必须
+    margin: 10px auto;
+    width: 200px;
+    height: 200px;
+    &__content {
+        @include stretch;
+        line-height: 200px;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        background-color: #f60;
+    }
+}
+
+.cross-browser {
+    [class^="cross-browser__"] {
+        font-size: 14px;
+        line-height: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    &__opacity {
+        @include opacity(0.4);
+        background-color: #f60;
+        color: #fff;
+    }
+    &__text-selection {
+        @include selection(#f00, #fff);
+    }
+    &__ellipsis {
+        @include ellipsis;
+        width: 300px;
+    }
+    @import "compass/typography";
+    &__force-wrap,
+    &__force-wrap--no {
+        width: 300px;
+        outline: 1px solid #ff0;
+        padding: 10px;
+    }
+    &__force-wrap {
+        @include force-wrap;
+    }
+    &__anim {
+        &__block {
+            width: 200px;
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #f60;
+            @include animation(bounce 3s infinite);
+        }
+        @include keyframes(bounce) {
+            0% {
+                @include transform(translateX(0));
+            }
+            20% {
+                @include translateX(-80px);
+                @include skewX(20deg);
+            }
+            90% {
+                @include translateX(100px);
+            }
+            100% {
+                @include translateX(0px);
+                @include skewX(0);
+            }
+        }
+    }
+    &__inline-block{
+    	&__item{
+    		@include inline-block;
+    		width: 30px;
+    		height: 40px;
+    		margin-right: 10px;
+    		border: 1px solid #f00;
+    		text-align: center;
+    	}
+    }
+    &__border-radious{
+    	&__item{
+    		background-color: #f00;
+    		@include inline-block;
+    		width: 100px;
+    		height: 100px;
+    		margin-right: 10px;
+    		border: 1px solid #f00;
+    		&:nth-child(2){
+    			@include border-radius(10px);
+    		}
+    		&:nth-child(3){
+    			@include border-radius(10px 15px 20px 50px);
+    		}
+    		&:nth-child(4){
+    			@include border-radius(10px 15px 20px 50px,20px 15px 30px 40px);
+    		}
+    	}
+    }
+}
+
+@import "compass/typography";
+.hide-text {
+    @include replace-text("demo/demo.png");
+    margin: 20px auto;
+    width: 64px;
+    height: 64px;
+}
