@@ -1,9 +1,11 @@
 {
   "name": "",
   "version": "0.1.0",
-  "description": "a front end project",
+  "description": "a front end scaffold project",
   "main": "",
+  "repository": "https://github.com/iamjoel/front-end-scaffold",
   "devDependencies": {
+    "browser-sync": "2.8.2",
     "del": "1.2.0",
     "gulp": "3.8.11",
     "gulp-load-plugins": "1.0.0-rc.1",

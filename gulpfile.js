@@ -119,3 +119,14 @@ gulp.task('remove-demo', function() {
         })
         .pipe(vinylPaths(del));
 });
+
+// http://www.browsersync.io/docs/gulp/
+var browserSync = require('browser-sync').create();
+gulp.task('f5', function() {
+    browserSync.init({
+        files: "**",
+        server: {
+            baseDir: "./src/"
+        }
+    });
+});
