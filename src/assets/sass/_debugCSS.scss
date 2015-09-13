@@ -1,109 +1,7 @@
-@charset "UTF-8";
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-html {
-  line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-*, :before, :after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html, body {
-  -webkit-user-select: none;
-  /* 禁止选中文本（如无文本选中需求，此为必选项） */
-  user-select: none;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 12px;
-}
-
-a, img {
-  -webkit-touch-callout: none;
-  /* 禁止长按链接与图片弹出菜单 */
-}
-
-* + h1, * + h2, * + h3, * + h4, * + h5, * + h6 {
-  margin-top: 20px;
-}
-
-h1 {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 1.25em;
-}
-
-a {
-  color: #0e90d2;
-  text-decoration: none;
-}
-a:hover {
-  color: #0b6fa2;
-}
-
 /***********/
 /* LICENSE */
 /***********/
+
 /* Copyrights for code authored by Yahoo! Inc. is licensed under the following terms:
    MIT License
    Copyright (c) 2011 Yahoo! Inc. All Rights Reserved.
@@ -111,9 +9,11 @@ a:hover {
    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+
 /*****************/
 /* WHAT IS THIS? */
 /*****************/
+
 /* debugCSS is meant to be loaded on an existing page to highlight potentially
    broken, malformed or legacy (X)HTML.  Not all "errors" are created equally,
    so they are color coded to highlight severity.  Green is "probably not a big
@@ -124,9 +24,12 @@ a:hover {
    Yellow: #FF8;
    Green: #8F8;
 */
+
 /******************/
 /* ERROR MESSAGES */
 /******************/
+@import "_variables";
+@if $is-valid-html {
 /* All errors should try to post a message explaining the problem. */
 table[summary]:after,
 table > *:first-child:not(caption):after,
@@ -153,7 +56,7 @@ table[bgcolor]:after,
 table[border]:after,
 table[cellpadding]:after,
 table[cellspacing]:after,
-*:not(img):not(iframe)[width]:after,
+*:not(img):not(iframe)[width]:after, /* Acceptable for transitional doctypes, but should probably be relegated to CSS */
 *:not(img):not(iframe)[height]:after,
 *[border]:after,
 *:not(area):not(base):not(br):not(col):not(embed):not(hr):not(iframe):not(img):not(input):not(textarea):empty:after,
@@ -163,6 +66,10 @@ img:not([src]) ~ *:not(area):not(base):not(br):not(col):not(embed):not(hr):not(i
 img[src=""] ~ *:not(area):not(base):not(br):not(col):not(embed):not(hr):not(iframe):not(img):not(input):first-of-type:before,
 img[src="#"] ~ *:not(area):not(base):not(br):not(col):not(embed):not(hr):not(iframe):not(img):not(input):first-of-type:before,
 img[src="spacer.gif"] ~ *:not(area):not(base):not(br):not(col):not(embed):not(hr):not(iframe):not(img):not(input):first-of-type:before,
+/*
+img[src*="&"]:not([src*="&amp;"]) ~ *:not(area):not(base):not(br):not(col):not(embed):not(hr):not(iframe):not(img):not(input):first-of-type:before,
+a[href*="&"]:not([href*="&amp;"]):after,
+*/
 a:not([href]):after,
 a[href="#"]:after,
 a[href*=javascript\:]:after,
@@ -179,7 +86,7 @@ h4 div:after,
 h5 div:after,
 h6 div:after,
 span div:after,
-html[xmlns] a div:after,
+html[xmlns] a div:after, /* Try to select only in XHTML documents (thanks, Thierry). */
 html[xmlns] a h1:after,
 html[xmlns] a h2:after,
 html[xmlns] a h3:after,
@@ -357,6 +264,7 @@ body:after {
    images), they're used so you can quickly see the message when inspecting the
    element.
 */
+
 table[summary]:after {
   background: #8F8;
   content: 'SUMMARY attribute is obsolete';
@@ -612,7 +520,7 @@ font:after {
 *[class*=Black]:after {
   background: #8F8;
   /* I know that these aren't necessarily bad, but probably worth highlighting */
-  content: attr(class) " has implied style meaning - should you be naming it differently?";
+  content: attr(class) ' has implied style meaning - should you be naming it differently?';
 }
 
 *[id*=left]:after,
@@ -643,7 +551,7 @@ font:after {
 *[id*=Black]:after {
   background: #8F8;
   /* I know that these aren't necessarily bad, but probably worth highlighting */
-  content: attr(id) " has implied style meaning - should you be naming it differently?";
+  content: attr(id) ' has implied style meaning - should you be naming it differently?';
 }
 
 *[class*=\\]:after,
@@ -771,6 +679,7 @@ body style ~ *:not(area):not(base):not(br):not(col):not(embed):not(hr):not(ifram
 /******************/
 /* ERROR OUTLINES */
 /******************/
+
 /* In addition to printing the error message next to the element, outline the
    element so it's easy to spot.  Use outline instead of border to avoid
    messing with the document flow.
@@ -779,6 +688,10 @@ a a,
 img:not([src]),
 img[src=""],
 img[src="#"],
+/*
+img[src*="&"]:not([src*="&amp;"]),
+a[href*="&"]:not([href*="&amp;"]),
+*/
 *[class*=\\],
 *[class*=\.],
 *[class*=\#],
@@ -998,7 +911,7 @@ body {
 
 body:after {
   background: #FFF;
-  content: "Errors: " counter(error) " | Warnings: " counter(warning) " | Notices: " counter(notice);
+  content: 'Errors: ' counter(error) ' | Warnings: ' counter(warning) ' | Notices: ' counter(notice);
   font-size: 125%;
   right: 1em;
   outline: 5px solid #000;
@@ -1009,9 +922,11 @@ body:after {
 /*********/
 /* EXTRA */
 /*********/
+
 /* Stuff that helps in developing / debugging, but don't quite fit anywhere
    else.
 */
+
 body > img:only-child {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRF/+Pj2tra2dnZ4Z9gVgAAAHxJREFUGBkFwUGKxDAQBDB9shqcuw2T/3TAc5+A95UruZv+IoNqvEWCavLFDB2M5vPgGpyFNOcB80cPJMxgHhLkQ4IxuBorpDA3Y+MazEfC2+gwgnOxHnSogb15F1JcGxmkcBb1AwlVqCIHadZGwt+NGmQhD1lIuB+scOUfnCk3BP0u5SsAAAAASUVORK5CYII=);
   border: 50px solid rgba(0, 0, 0, 0.08);
@@ -1021,572 +936,15 @@ body > img:only-child {
   padding: 0;
 }
 
-img[src=""] {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9Ii0wLjA5MTUwNiIgeTE9IjAuMTU4NDk0IiB4Mj0iMS4wOTE1MDYiIHkyPSIwLjg0MTUwNiI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJhYzM2MyIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjY2Q4YzE0Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOWM0Y2MyIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
-  background-size: 100%;
-  background-image: -moz-linear-gradient(330deg, #2ac363, #cd8c14, #9c4cc2);
-  background-image: -webkit-linear-gradient(330deg, #2ac363, #cd8c14, #9c4cc2);
-  background-image: linear-gradient(120deg, #2ac363, #cd8c14, #9c4cc2);
-  position: relative;
+img[src=""] {// for test and find no src img
+    @include background-image(linear-gradient(120deg, #2ac363, #cd8c14, #9c4cc2));
+    position: relative;
+    &:after{
+        content: 'src空';//
+        text-align: center;
+        font-size: 14px;
+        color: #fff;
+        @include stretch;
+    }
 }
-img[src=""]:after {
-  content: 'src空';
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
-
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.fl {
-  float: left;
-}
-
-.fr {
-  float: right;
-}
-
-.container {
-  max-width: 120rem;
-  margin-left: auto;
-  margin-right: auto;
-  *zoom: 1;
-}
-.container:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/*! Kite v0.2.0 | MIT License | github.com/kitecss */
-/*
-# kite core
-
-1. Fill in `inline-block` gaps and then reset to `font-size` root font-size `rem`
-2. For Android: Android don't fill in `inline-block` gaps. `display: table;` magic fills in them.  
-3. For lte IE 8: IE 8 can't use `rem`. Use `medium` keyword for the purpose of reset `font-size`.
-
-```html
-<div class="kite">
-  <div class="kite__item">A</div>
-  <div class="kite__item">B</div>
-  <div class="kite__item">C</div>
-</div>
-```
-*/
-.kite {
-  display: table;
-  width: 100%;
-  font-size: 0 !important;
-}
-
-/*
-Opera 12 has causing too wide gaps bug by setting `font-size: 0'.
-If you need to fix this bug, use the following code.
-
-```
-.opera:-o-prefocus,
-.kite {
-  font-size: 0.5px !important;
-}
-```
-*/
-.kite__item {
-  box-sizing: border-box;
-  display: inline-block;
-  font-size: medium;
-  font-size: 1rem;
-  vertical-align: top;
-}
-
-/*
-# kite functions
-*/
-/*
-## Horizontal align items
-
-```html
-<div class="kite kite--center">
-  <div class="kite__item">A</div>
-  <div class="kite__item">B</div>
-  <div class="kite__item">C</div>
-</div>
-```
-*/
-.kite--left {
-  text-align: left !important;
-}
-
-.kite--center {
-  text-align: center !important;
-}
-
-.kite--right {
-  text-align: right !important;
-}
-
-/*
-## Sizing items
-
-```html
-<div class="kite">
-  <div class="kite__item">A</div>
-  <div class="kite__item kite__item--left">B</div>
-  <div class="kite__item kite__item--right">C</div>
-</div>
-```
-*/
-.kite__item--fifth {
-  width: 20%;
-}
-
-.kite__item--fourth {
-  width: 25%;
-}
-
-.kite__item--third {
-  width: 33.333%;
-}
-
-.kite__item--half {
-  width: 50%;
-}
-
-.kite__item--full {
-  width: 100%;
-}
-
-/*
-## Vertical align items
-
-```html
-<div class="kite">
-  <div class="kite__item">A</div>
-  <div class="kite__item kite__item--middle">B</div>
-  <div class="kite__item kite__item--middle">C</div>
-</div>
-```
-*/
-.kite--top > .kite__item {
-  vertical-align: top !important;
-}
-
-.kite--middle > .kite__item {
-  vertical-align: middle !important;
-}
-
-.kite--bottom > .kite__item {
-  vertical-align: bottom !important;
-}
-
-/*
-## Horizontal align content in items
-
-```html
-<div class="kite">
-  <div class="kite__item kite__item--center">A</div>
-  <div class="kite__item kite__item--center">B</div>
-  <div class="kite__item kite__item--center">C</div>
-</div>
-```
-*/
-.kite__item--left {
-  text-align: left !important;
-}
-
-.kite__item--center {
-  text-align: center !important;
-}
-
-.kite__item--right {
-  text-align: right !important;
-}
-
-/*
-## Intrinsic width 
-
-```html
-<div class="kite">
-  <div class="kite__item">A</div>
-  <div class="kite__item kite__item--left">B</div>
-  <div class="kite__item kite__item--right">C</div>
-</div>
-```
-*/
-.kite__item--fifth {
-  width: 20%;
-}
-
-.kite__item--fourth {
-  width: 25%;
-}
-
-.kite__item--third {
-  width: 33.333%;
-}
-
-.kite__item--half {
-  width: 50%;
-}
-
-.kite__item--full {
-  width: 100%;
-}
-
-/*
-## Justify align items
-
-```html
-<div class="kite kite--justify">
-  <div class="kite__item">A</div>
-  <div class="kite__item">B</div>
-  <div class="kite__item">C</div>
-</div>
-```
-*/
-.kite--justify {
-  display: block;
-  text-align: justify;
-  text-justify: distribute-all-lines;
-}
-.kite--justify:after {
-  content: '';
-  display: inline-block;
-  width: 100%;
-}
-
-/*
-## Fill items
-
-```html
-<div class="kite kite--justify">
-  <div class="kite__item">A</div>
-  <div class="kite__item">B</div>
-  <div class="kite__item">C</div>
-</div>
-```
-*/
-.kite--fill.is-equalize {
-  table-layout: fixed;
-}
-.kite--fill > .kite__item {
-  display: table-cell;
-}
-
-/*
-## Absolute position items
-
-```html
-<div style="position:relative">
-  <div class="kite kite--position">
-    <div class="kite__item">A</div>
-  </div>
-</div>
-```
-*/
-.kite--position {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-}
-.kite--position.is-position-fixed {
-  position: fixed;
-}
-.kite--position:after {
-  display: inline-block;
-  content: "";
-  height: 100%;
-  vertical-align: middle;
-}
-.kite--position > .kite__item {
-  vertical-align: middle;
-  text-align: left;
-}
-
-/*
-## Grid layout items
-
-NOTE: this can trigger a horizontal scrollbar if the component is as wide as the viewport.
-Use padding on a container(.kite), or `overflow-x:hidden` to protect against it.
-
-```html
-<div class="kite kite--grid has-gutter">
-  <div class="kite__item is-4of12">A</div>
-  <div class="kite__item is-4of12">B</div>
-  <div class="kite__item is-4of12">C</div>
-</div>
-```
-*/
-.kite--grid > .kite__item.is-1of12 {
-  width: 8.33333%;
-}
-.kite--grid > .kite__item.is-2of12 {
-  width: 16.66667%;
-}
-.kite--grid > .kite__item.is-3of12 {
-  width: 25%;
-}
-.kite--grid > .kite__item.is-4of12 {
-  width: 33.33333%;
-}
-.kite--grid > .kite__item.is-5of12 {
-  width: 41.66667%;
-}
-.kite--grid > .kite__item.is-6of12 {
-  width: 50%;
-}
-.kite--grid > .kite__item.is-7of12 {
-  width: 58.33333%;
-}
-.kite--grid > .kite__item.is-8of12 {
-  width: 66.66667%;
-}
-.kite--grid > .kite__item.is-9of12 {
-  width: 75%;
-}
-.kite--grid > .kite__item.is-10of12 {
-  width: 83.33333%;
-}
-.kite--grid > .kite__item.is-11of12 {
-  width: 91.66667%;
-}
-.kite--grid > .kite__item.is-12of12 {
-  width: 100%;
-}
-.kite--grid.has-gutter {
-  display: block;
-  width: auto;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.kite--grid.has-gutter > .kite__item {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.place-holder-img {
-  display: block;
-  width: 200px;
-  height: 200px;
-  margin: 20px auto;
-}
-
-.stretch {
-  position: relative;
-  margin: 10px auto;
-  width: 200px;
-  height: 200px;
-}
-.stretch__content {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  line-height: 200px;
-  font-size: 16px;
-  color: #fff;
-  text-align: center;
-  background-color: #f60;
-}
-
-.cross-browser [class^="cross-browser__"] {
-  font-size: 14px;
-  line-height: 40px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.cross-browser__opacity {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-  opacity: 0.4;
-  background-color: #f60;
-  color: #fff;
-}
-.cross-browser__text-selection::-moz-selection {
-  color: #fff;
-  background-color: #f00;
-}
-.cross-browser__text-selection::selection {
-  color: #fff;
-  background-color: #f00;
-}
-.cross-browser__ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  width: 300px;
-}
-.cross-browser__force-wrap, .cross-browser__force-wrap--no {
-  width: 300px;
-  outline: 1px solid #ff0;
-  padding: 10px;
-}
-.cross-browser__force-wrap {
-  white-space: pre;
-  white-space: pre-wrap;
-  white-space: pre-line;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -hp-pre-wrap;
-  word-wrap: break-word;
-}
-.cross-browser__anim__block {
-  width: 200px;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #f60;
-  -moz-animation: bounce 3s infinite;
-  -webkit-animation: bounce 3s infinite;
-  animation: bounce 3s infinite;
-}
-@-moz-keyframes bounce {
-  0% {
-    -moz-transform: translateX(0);
-    transform: translateX(0);
-  }
-  20% {
-    -moz-transform: translateX(-80px);
-    transform: translateX(-80px);
-    -moz-transform: skewX(20deg);
-    transform: skewX(20deg);
-  }
-  90% {
-    -moz-transform: translateX(100px);
-    transform: translateX(100px);
-  }
-  100% {
-    -moz-transform: translateX(0px);
-    transform: translateX(0px);
-    -moz-transform: skewX(0);
-    transform: skewX(0);
-  }
-}
-@-webkit-keyframes bounce {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  20% {
-    -webkit-transform: translateX(-80px);
-    transform: translateX(-80px);
-    -webkit-transform: skewX(20deg);
-    transform: skewX(20deg);
-  }
-  90% {
-    -webkit-transform: translateX(100px);
-    transform: translateX(100px);
-  }
-  100% {
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
-    -webkit-transform: skewX(0);
-    transform: skewX(0);
-  }
-}
-@keyframes bounce {
-  0% {
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  20% {
-    -moz-transform: translateX(-80px);
-    -ms-transform: translateX(-80px);
-    -webkit-transform: translateX(-80px);
-    transform: translateX(-80px);
-    -moz-transform: skewX(20deg);
-    -ms-transform: skewX(20deg);
-    -webkit-transform: skewX(20deg);
-    transform: skewX(20deg);
-  }
-  90% {
-    -moz-transform: translateX(100px);
-    -ms-transform: translateX(100px);
-    -webkit-transform: translateX(100px);
-    transform: translateX(100px);
-  }
-  100% {
-    -moz-transform: translateX(0px);
-    -ms-transform: translateX(0px);
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
-    -moz-transform: skewX(0);
-    -ms-transform: skewX(0);
-    -webkit-transform: skewX(0);
-    transform: skewX(0);
-  }
-}
-.cross-browser__inline-block__item {
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
-  width: 30px;
-  height: 40px;
-  margin-right: 10px;
-  border: 1px solid #f00;
-  text-align: center;
-}
-.cross-browser__border-radious__item {
-  background-color: #f00;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  *zoom: 1;
-  *display: inline;
-  width: 100px;
-  height: 100px;
-  margin-right: 10px;
-  border: 1px solid #f00;
-}
-.cross-browser__border-radious__item:nth-child(2) {
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-.cross-browser__border-radious__item:nth-child(3) {
-  -moz-border-radius: 10px 15px 20px 50px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px 15px 20px 50px;
-}
-.cross-browser__border-radious__item:nth-child(4) {
-  -moz-border-radius: 10px 15px 20px 50px / 20px 15px 30px 40px;
-  -webkit-border-radius: 10px 20px;
-  border-radius: 10px 15px 20px 50px / 20px 15px 30px 40px;
-}
-
-.hide-text {
-  text-indent: -119988px;
-  overflow: hidden;
-  text-align: left;
-  text-transform: capitalize;
-  background-image: url('../../image/demo/demo.png?1442067336');
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  margin: 20px auto;
-  width: 64px;
-  height: 64px;
-}
-
-/*# sourceMappingURL=demo-component.css.map */

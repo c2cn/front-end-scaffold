@@ -32,21 +32,22 @@ $desktop-width: 1024px;
   }
 }
 
-p {
-  font-size: 16px;
+// demo
+// p {
+//   font-size: 16px;
 
-  @include tablet {
-    font-size: 18px;
-    @include retina{
-    	color: #ddd;
-    }
-  }
+//   @include tablet {
+//     font-size: 18px;
+//     @include retina{
+//     	color: #ddd;
+//     }
+//   }
 
-  @include desktop {
-    font-size: 20px;
-  }
+//   @include desktop {
+//     font-size: 20px;
+//   }
 
-  @include phone {
-    font-size: 20px;
-  }
-}
+//   @include phone {
+//     font-size: 20px;
+//   }
+// }

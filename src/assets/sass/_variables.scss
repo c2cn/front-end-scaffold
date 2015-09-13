@@ -28,3 +28,9 @@ $grid-gutter-width:         30px !default;
 $grid-float-breakpoint:     $screen-sm-min !default;
 //** Point at which the navbar begins collapsing.
 $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+//** 是否是移动设备
+$is-mobile: true;
+//** 在 _debugCSS.scss 中会用到
+$is-valid-html: true;
+
