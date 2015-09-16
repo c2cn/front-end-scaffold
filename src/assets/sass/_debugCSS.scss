@@ -1,3 +1,7 @@
+@import "_variables";
+@debug 'is valid html #{$is-valid-html}';
+
+@if $is-valid-html {
 /***********/
 /* LICENSE */
 /***********/
@@ -28,8 +32,7 @@
 /******************/
 /* ERROR MESSAGES */
 /******************/
-@import "_variables";
-@if $is-valid-html {
+
 /* All errors should try to post a message explaining the problem. */
 table[summary]:after,
 table > *:first-child:not(caption):after,

@@ -32,5 +32,5 @@ $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
 //** 是否是移动设备
 $is-mobile: true;
 //** 在 _debugCSS.scss 中会用到
-$is-valid-html: true;
+$is-valid-html: false;// _debugCSS修改中
 
