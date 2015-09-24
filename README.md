@@ -41,6 +41,7 @@
 * CSS
 	* [kitecss](http://hiloki.github.io/kitecss/) 灵活的CSS布局框架。基于`display:inline-block`
 	* [debugCSS](https://github.com/yahoo/debugCSS) 对HTML的验证
+	* [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 图标字体
 
 
 ## 本项目相关帮助文档
