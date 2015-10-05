@@ -1,0 +1,125 @@
+@charset "utf-8";
+@import "compass";
+@import "compass/layout/";
+@import "compass/css3";
+@import "compass/reset";
+*,
+:before,
+:after {
+    // IE8+
+    @include box-sizing(border-box);
+}
+
+html,
+body {
+    -webkit-user-select: none;
+    /* 禁止选中文本（如无文本选中需求，此为必选项） */
+    user-select: none;
+}
+
+html {
+    font-size: 62.5%; // 10px
+}
+
+body {
+    font-size: 12px;
+    background: #000 url(../image/doc-bg.jpg) fixed 100% 100%;
+}
+
+a,
+img {
+    -webkit-touch-callout: none;
+    /* 禁止长按链接与图片弹出菜单 */
+}
+
+@mixin clearfix() {
+    // 还有另外的几个见 http://compass-style.org/reference/compass/utilities/general/clearfix/
+    @include pie-clearfix();
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    @include clearfix();
+}
+
+.doc-name {
+    margin: 20px 0;
+    font-size: 26px;
+    color: #fff;
+}
+
+.doc {
+    // columns https://css-tricks.com/almanac/properties/c/columns/
+    @include column-gap(15px);
+    @include column-count(4);
+    &__item {
+        @include break-inside(avoid);
+        margin-bottom: 15px;
+        padding: 15px;
+        background-color: rgba(60, 255, 20, 0.247059);
+        border-radius: 8px;
+        color: #fff;
+        &__header {
+            font-size: 28px;
+            font-weight: bold;
+            padding-right: 10px;
+            margin-bottom: 5px;
+            text-align: right;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 3px;
+        }
+        &__content {
+            &__sub {
+                &__title {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #f4fcbb;
+                }
+                &__item {
+                    display: block;
+                    font-size: 14px;
+                    color: #fff;
+                }
+            }
+        }
+        // for test
+        // &:nth-child(1) {
+        //     height: 200px;
+        // }
+        // &:nth-child(2) {
+        //     height: 400px;
+        // }
+        // &:nth-child(3) {
+        //     height: 300px;
+        // }
+        // &:nth-child(4) {
+        //     height: 150px;
+        // }
+        // &:nth-child(5) {
+        //     height: 300px;
+        // }
+        // &:nth-child(6) {
+        //     height: 400px;
+        // }
+        // &:nth-child(7) {
+        //     height: 300px;
+        // }
+        // &:nth-child(8) {
+        //     height: 200px;
+        // }
+    }
+}
