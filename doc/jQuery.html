@@ -1,53 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>jQuery Cheetsheet</title>
+    <meta charset="UTF-8">
+    <title>jQuery Cheetsheet</title>
+    <link rel="stylesheet" href="assets/css/doc-common.css">
 </head>
+
 <body>
-	http://overapi.com/jquery/
+    <!-- http://overapi.com/jquery/
 	http://oscarotero.com/jquery/
-	http://api.jquery.com/
-	选择器
-	过滤器
-	:hidden
-	:visible
-	:empty
-	:contains() 文本中包含
-	:eq()
-	:lt()
-	:gt()
+	http://api.jquery.com/ -->
+    <!-- <div class="doc__item">
+                <h2 class="doc__item__header"></h2>
+                <div class="doc__item__content">
+                	<div class="doc__item__content__sub">
+                        <h3 class="doc__item__content__sub__title"></h3>
+                        <a href="###" class="doc__item__content__sub__item"></a>
+                    </div>
+                </div>
+            </div> -->
+    <div class="container">
+        <h1 class="doc-name"><a href="api.jquery.com">JQuery Cheat Sheet</h1>
+        <div class="doc">
+            <div class="doc__item">
+                <h2 class="doc__item__header">选择器</h2>
+                <div class="doc__item__content">
+                    <div class="doc__item__content__sub">
+                        <h3 class="doc__item__content__sub__title">过滤器</h3>
+                        <a href="###" class="doc__item__content__sub__item">:hidden</a>
+                        <a href="###" class="doc__item__content__sub__item">:visible</a>
+                        <a href="###" class="doc__item__content__sub__item">:empty</a>
+                        <a href="###" class="doc__item__content__sub__item">:contains() 文本中包含</a>
+                        <a href="###" class="doc__item__content__sub__item">:eq() :gt() :lt()</a>
+                    </div>
+                </div>
+            </div>
+            <div class="doc__item">
+                <h2 class="doc__item__header">事件相关</h2>
+                <div class="doc__item__content">
+                	<div class="doc__item__content__sub">
+                        <h3 class="doc__item__content__sub__title">Event对象</h3>
+                        <a href="###" class="doc__item__content__sub__item">event.currentTarget</a>
+                        <a href="###" class="doc__item__content__sub__item">event.target</a>
+                        <a href="###" class="doc__item__content__sub__item">event.relatedTarget</a>
+                        <a href="###" class="doc__item__content__sub__item">event.stopPropagation()</a>
+                        <a href="###" class="doc__item__content__sub__item">event.preventDefault()</a>
+                        <a href="###" class="doc__item__content__sub__item">event.which</a>
+                        <a href="###" class="doc__item__content__sub__item"></a>
+                    </div>
+                    <div class="doc__item__content__sub">
+                        <h3 class="doc__item__content__sub__title">事件绑定</h3>
+                        <a href="###" class="doc__item__content__sub__item">.on(事件名, 子元素, 处理函数)</a>
+                        <a href="###" class="doc__item__content__sub__item">.off()</a>
+                        <a href="###" class="doc__item__content__sub__item">.one</a>
+                        <a href="###" class="doc__item__content__sub__item">.trigger()</a>
+                        <a href="###" class="doc__item__content__sub__item"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="doc__item">
+                <h2 class="doc__item__header">工具方法</h2>
+                <div class="doc__item__content">
+                	<div class="doc__item__content__sub">
+                        <a href="###" class="doc__item__content__sub__item">$.makeArray()</a>
+                        <a href="###" class="doc__item__content__sub__item">$.extend()</a>
+                        <a href="###" class="doc__item__content__sub__item">$.noop()</a>
+                        <a href="###" class="doc__item__content__sub__item">$.now()</a>
+                    </div>
+                </div>
+            </div>
 
-
-	事件相关
-	Event对象
-	event.currentTarget
-	event.stopPropagation() 防止冒泡
-	event.preventDefault() 防止默认行为
-	event.target （todo）
-	event.which 常见键值对应的链接
-	event.relatedTarget
-
-	绑定事件
-	.on
-	.off
-	.one( events [, data ], handler )
-	.trigger
-
-	属性
-	尺寸
-	height
-	innerHeight
-	outerHeight
-
-	工具方法
-	$.makeArray()
-	$.extend()
-	$.noop()
-	$.now()
-	$.grep() 相当与 数组的filter方法
-
-
-
+            
+        </div>
+    </div>
+     <!-- todo 属性 尺寸 height innerHeight outerHeight -->
 </body>
+
 </html>

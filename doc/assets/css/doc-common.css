@@ -85,6 +85,11 @@ img {
   /* 禁止长按链接与图片弹出菜单 */
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .clearfix {
   *zoom: 1;
 }
@@ -142,10 +147,19 @@ img {
   font-size: 28px;
   font-weight: bold;
   padding-right: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-align: right;
   border-bottom: 1px solid #ccc;
   padding-bottom: 3px;
+}
+.doc__item__content {
+  line-height: 1.5;
+}
+.doc__item__content__sub {
+  margin-bottom: 10px;
+}
+.doc__item__content__sub:last-child {
+  margin-bottom: 0;
 }
 .doc__item__content__sub__title {
   font-size: 16px;
