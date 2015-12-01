@@ -125,19 +125,9 @@ a {
   color: #fff;
 }
 
-.doc {
-  -moz-column-gap: 15px;
-  -webkit-column-gap: 15px;
-  column-gap: 15px;
-  -moz-column-count: 4;
-  -webkit-column-count: 4;
-  column-count: 4;
-}
 .doc__item {
-  -moz-page-break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  break-inside: avoid;
-  margin-bottom: 15px;
+  width: 258px;
+  margin: 0 10px 10px 10px;
   padding: 15px;
   background-color: rgba(60, 255, 20, 0.24706);
   border-radius: 8px;
