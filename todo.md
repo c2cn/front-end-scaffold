@@ -6,3 +6,8 @@
 
 ## 代码规范
 * 前端开发规范手册 http://zhibimo.com/read/Ashu/front-end-style-guide/
+
+## 该项目的浏览器支持性情况
+
+## 参考[Web Starter Kit](https://github.com/google/web-starter-kit)
+
