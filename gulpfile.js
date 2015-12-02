@@ -2,13 +2,12 @@
 // http://markdalgleish.github.io/presentation-build-wars-gulp-vs-grunt
 // gulp-changed 获得那些修改的文件
 var gulp = require('gulp');
-var gulpLoadPlugins = require('gulp-load-plugins'); // 加载所有的插件
-var plugins = gulpLoadPlugins();
+var $ = require('gulp-load-plugins')();// 加载所有的插件
 var del = require('del');
 var vinylPaths = require('vinyl-paths');
 var pkg = require('./package.json');
 var combiner = require('stream-combiner2');
-var gutil = plugins.util;
+var gutil = $.util;
 var handleError = function(err) {
     var colors = gutil.colors;
     console.log('\n')
@@ -47,10 +46,10 @@ gulp.task('build', ['min-js', 'min-css', 'move-image', 'move-html']);
 // 压缩js
 gulp.task('min-js', ['remove-dist-js'], function() {
     var combined = combiner.obj([gulp.src(paths.js),
-        plugins.sourcemaps.init(),
-        plugins.stripDebug(), // 去掉console，alert，debugger语句
-        plugins.uglify(), // 压缩
-        plugins.sourcemaps.write('.'),
+        $.sourcemaps.init(),
+        $.stripDebug(), // 去掉console，alert，debugger语句
+        $.uglify(), // 压缩
+        $.sourcemaps.write('.'),
         gulp.dest(DIST_PATH)
     ]);
     combined.on('error', handleError);// 优化报错信息
@@ -60,9 +59,9 @@ gulp.task('min-js', ['remove-dist-js'], function() {
 // 压缩css
 gulp.task('min-css', ['remove-dist-css'], function() {
     return gulp.src(paths.css)
-        .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.minifyCss()) // 压缩
-        .pipe(plugins.sourcemaps.write('.'))
+        .pipe($.sourcemaps.init())
+        .pipe($.minifyCss()) // 压缩
+        .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(DIST_PATH)); // 移动到目标文件。若目标文件夹不存在，会自动创建
 });
 
