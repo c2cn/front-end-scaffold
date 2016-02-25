@@ -68,7 +68,8 @@ html, body {
 }
 
 html {
-  font-size: 62.5%;
+  /* 和算rem配合用 */
+  font-size: 50px;
 }
 
 body {
@@ -78,6 +79,12 @@ body {
 a, img {
   -webkit-touch-callout: none;
   /* 禁止长按链接与图片弹出菜单 */
+}
+
+/* 防止图片宽度太大影响布局 */
+img {
+  height: auto;
+  max-width: 100%;
 }
 
 * + h1, * + h2, * + h3, * + h4, * + h5, * + h6 {
@@ -641,7 +648,7 @@ Use padding on a container(.kite), or `overflow-x:hidden` to protect against it.
   overflow: hidden;
   text-align: left;
   text-transform: capitalize;
-  background-image: url('../../image/demo/demo.png?1442067336');
+  background-image: url('../../image/demo/demo.png?1442452133');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   margin: 20px auto;

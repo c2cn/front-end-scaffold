@@ -7,13 +7,13 @@
 *, :before, :after{// IE8+
     @include box-sizing(border-box);
 }
-
 html, body {
     -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
     user-select: none;
 }
 html{
-    font-size: 62.5%;// 10px
+    /* 和算rem配合用 */
+    font-size: 50px;
 }
 body{
     font-size: 12px;
@@ -22,6 +22,12 @@ body{
 a, img {
     -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
 }
+/* 防止图片宽度太大影响布局 */
+img{
+  height: auto;
+  max-width: 100%;
+}
+
 
 @import "_type";// 排版
 
