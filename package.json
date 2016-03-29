@@ -4,7 +4,7 @@
   "description": "a front end scaffold project",
   "main": "",
   "scripts":{
-    "prebuild": "rm -r dist && mkdir dist",
+    "prebuild": "rm -r dist && mkdir dist\\assets",
     "build": "npm run move:html && npm run build:css && npm run build:js",
     "build:js": "webpack -d",
     "build:css": "cd src && compass compile && cd ../ && npm run move:css",
