@@ -5,8 +5,10 @@
   "main": "",
   "scripts":{
     "prebuild": "rm -r dist && mkdir dist",
-    "build": "npm run move:html && npm run build:js",
+    "build": "npm run move:html && npm run build:css && npm run build:js",
     "build:js": "webpack -d",
+    "build:css": "cd src && compass compile && cd ../ && npm run move:css",
+    "move:css": "cp -r src\\assets\\css dist\\assets\\css",
     "move:html": "cp -r src\\views dist\\views"
   },
   "repository": "https://github.com/iamjoel/front-end-scaffold",
