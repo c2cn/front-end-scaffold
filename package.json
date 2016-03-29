@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "a front end scaffold project",
   "main": "",
+  "scripts":{
+    "prebuild": "rm -r dist && mkdir dist",
+    "build": "npm run move:html",
+    "move:html": "cp -r src\\views dist\\views"
+  },
   "repository": "https://github.com/iamjoel/front-end-scaffold",
   "devDependencies": {
     "browser-sync": "2.8.2",

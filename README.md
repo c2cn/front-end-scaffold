@@ -31,6 +31,12 @@
 * `gulp build` 构建项目：将js,css文件进行压缩,并且生成sourcemap，其压缩后的文件和image，html文件一起移动到`dist`文件夹。
 * `gulp f5` 启动一静态服务器，当`src`下的资源有变化，自动刷新浏览器
 
+## npm 任务
+* 构建: `npm run build`
+
+### 参考
+* [Why I Left Gulp and Grunt for npm Scripts](https://medium.freecodecamp.com/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.n8tjc2j5e)
+* [npm-scripts-demo](https://github.com/revolution-messaging/npm-scripts-demo)
 
 ## 使用的技术
 * 任务管理(Task Runners)
