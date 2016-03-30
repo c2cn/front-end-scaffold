@@ -1,18 +1,10 @@
-var pathPrefix = "js/";
-var srcJsPrefix = './src/assets/' + pathPrefix;
-var distJsPrefix = 'assets/' + pathPrefix;
-var entry = {};
-
-function addEntry(entry, name) {
-    entry[distJsPrefix + name] = srcJsPrefix + name;
-}
-
-addEntry(entry, 'demo/demo');
-
+var srcPrefix = './src/assets/js-src/';
 module.exports = {
-    entry: entry,
+    entry: {
+      'demo': srcPrefix + 'demo'
+    },
     output: {
-        'path': 'dist',
+        'path': 'src/assets/js',
         filename: '[name].js'
     },
     module: {
