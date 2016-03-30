@@ -28,12 +28,12 @@
 
 
 ## 任务
-* 构建: `npm run build`。该命令做了以下几件事
+* 发布: `npm run build`。该命令做了以下几件事
 	* 删除 dist
 	* 将 ES6 代码编译成 ES5 代码，合并（如果有需要的话），并压缩。用 Webpack + Babel 来实现的。
 	* 将 Sass 代码编译成 CSS 代码，并压缩。用 Compass 来实现。
 	* 将 src 目录下的除了 ES6 和 Sass 代码外的其他代码都移动到 dist 目录下。
-* 运行: `npm run start`。该命令做了以下几件事
+* 开发: `npm run start`。该命令做了以下几件事
 	* 启动静态服务器
 	* 监视 Sass 文件的变化。变化时，编译生成 CSS。
 	* 监视 ES6 文件的变化。变化时，编译生成 ES5 的 JS。
