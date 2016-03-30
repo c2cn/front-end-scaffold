@@ -71,7 +71,7 @@
 	var greetFn = function greetFn() {
 	  var name = arguments.length <= 0 || arguments[0] === undefined ? 'Joel' : arguments[0];
 	
-	  console.log('Hi, I am ' + name);
+	  console.log('Hi! I am ' + name);
 	};
 	exports.packageName = packageName;
 	exports.greetFn = greetFn;

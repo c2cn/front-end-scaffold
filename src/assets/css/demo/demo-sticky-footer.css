@@ -1,90 +1,486 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+*, :before, :after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  -webkit-user-select: none;
+  /* 禁止选中文本（如无文本选中需求，此为必选项） */
+  user-select: none;
+}
+
+html {
+  /* 和算rem配合用 */
+  font-size: 50px;
+}
+
+body {
+  font-size: 12px;
+}
+
+a, img {
+  -webkit-touch-callout: none;
+  /* 禁止长按链接与图片弹出菜单 */
+}
+
+/* 防止图片宽度太大影响布局 */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+* + h1, * + h2, * + h3, * + h4, * + h5, * + h6 {
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+a {
+  color: #0e90d2;
+  text-decoration: none;
+}
+a:hover {
+  color: #0b6fa2;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.container {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  *zoom: 1;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*! Kite v0.2.0 | MIT License | github.com/kitecss */
 /*
-Error: Invalid GBK character "\xE7"
-        on line 946 of D:/Github/front-end-scaffold/src/assets/sass/_debugCSS.scss
-        from line 34 of D:/Github/front-end-scaffold/src/assets/sass/common.scss
-        from line 1 of D:/Github/front-end-scaffold/src/assets/sass/demo/demo-sticky-footer.scss
+# kite core
 
-941: 
-942: img[src=""] {// for test and find no src img
-943:     @include background-image(linear-gradient(120deg, #2ac363, #cd8c14, #9c4cc2));
-944:     position: relative;
-945:     &:after{
-946:         content: 'src空';//
-947:         text-align: center;
-948:         font-size: 14px;
-949:         color: #fff;
-950:         @include stretch;
-951:     }
+1. Fill in `inline-block` gaps and then reset to `font-size` root font-size `rem`
+2. For Android: Android don't fill in `inline-block` gaps. `display: table;` magic fills in them.  
+3. For lte IE 8: IE 8 can't use `rem`. Use `medium` keyword for the purpose of reset `font-size`.
 
-Backtrace:
-D:/Github/front-end-scaffold/src/assets/sass/_debugCSS.scss:946
-D:/Github/front-end-scaffold/src/assets/sass/common.scss:34
-D:/Github/front-end-scaffold/src/assets/sass/demo/demo-sticky-footer.scss:1
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/util.rb:1323:in `rescue in block in find_encoding_error'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/util.rb:1320:in `block in find_encoding_error'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/util.rb:1319:in `each'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/util.rb:1319:in `each_with_index'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/util.rb:1319:in `find_encoding_error'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/util.rb:896:in `check_sass_encoding'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/engine.rb:423:in `check_encoding!'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/engine.rb:379:in `_to_tree'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/engine.rb:299:in `to_tree'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:325:in `block (2 levels) in visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:325:in `map'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:325:in `block in visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:88:in `block in with_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:88:in `with_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `map'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/engine.rb:285:in `render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:23:in `block in render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:22:in `render_with_sourcemap'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:328:in `block in watch'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/vendor/listen/lib/listen/listener.rb:252:in `call'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/sass-3.4.13/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+```html
+<div class="kite">
+  <div class="kite__item">A</div>
+  <div class="kite__item">B</div>
+  <div class="kite__item">C</div>
+</div>
+```
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid GBK character \"\xE7\"\A         on line 946 of D:/Github/front-end-scaffold/src/assets/sass/_debugCSS.scss\A         from line 34 of D:/Github/front-end-scaffold/src/assets/sass/common.scss\A         from line 1 of D:/Github/front-end-scaffold/src/assets/sass/demo/demo-sticky-footer.scss\A \A 941: \A 942: img[src=\"\"] {// for test and find no src img\A 943:     @include background-image(linear-gradient(120deg, #2ac363, #cd8c14, #9c4cc2));\A 944:     position: relative;\A 945:     &:after{\A 946:         content: 'src空';//\A 947:         text-align: center;\A 948:         font-size: 14px;\A 949:         color: #fff;\A 950:         @include stretch;\A 951:     }"; }
+.kite {
+  display: table;
+  width: 100%;
+  font-size: 0 !important;
+}
+
+/*
+Opera 12 has causing too wide gaps bug by setting `font-size: 0'.
+If you need to fix this bug, use the following code.
+
+```
+.opera:-o-prefocus,
+.kite {
+  font-size: 0.5px !important;
+}
+```
+*/
+.kite__item {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: medium;
+  font-size: 1rem;
+  vertical-align: top;
+}
+
+/*
+# kite functions
+*/
+/*
+## Horizontal align items
+
+```html
+<div class="kite kite--center">
+  <div class="kite__item">A</div>
+  <div class="kite__item">B</div>
+  <div class="kite__item">C</div>
+</div>
+```
+*/
+.kite--left {
+  text-align: left !important;
+}
+
+.kite--center {
+  text-align: center !important;
+}
+
+.kite--right {
+  text-align: right !important;
+}
+
+/*
+## Sizing items
+
+```html
+<div class="kite">
+  <div class="kite__item">A</div>
+  <div class="kite__item kite__item--left">B</div>
+  <div class="kite__item kite__item--right">C</div>
+</div>
+```
+*/
+.kite__item--fifth {
+  width: 20%;
+}
+
+.kite__item--fourth {
+  width: 25%;
+}
+
+.kite__item--third {
+  width: 33.333%;
+}
+
+.kite__item--half {
+  width: 50%;
+}
+
+.kite__item--full {
+  width: 100%;
+}
+
+/*
+## Vertical align items
+
+```html
+<div class="kite">
+  <div class="kite__item">A</div>
+  <div class="kite__item kite__item--middle">B</div>
+  <div class="kite__item kite__item--middle">C</div>
+</div>
+```
+*/
+.kite--top > .kite__item {
+  vertical-align: top !important;
+}
+
+.kite--middle > .kite__item {
+  vertical-align: middle !important;
+}
+
+.kite--bottom > .kite__item {
+  vertical-align: bottom !important;
+}
+
+/*
+## Horizontal align content in items
+
+```html
+<div class="kite">
+  <div class="kite__item kite__item--center">A</div>
+  <div class="kite__item kite__item--center">B</div>
+  <div class="kite__item kite__item--center">C</div>
+</div>
+```
+*/
+.kite__item--left {
+  text-align: left !important;
+}
+
+.kite__item--center {
+  text-align: center !important;
+}
+
+.kite__item--right {
+  text-align: right !important;
+}
+
+/*
+## Intrinsic width 
+
+```html
+<div class="kite">
+  <div class="kite__item">A</div>
+  <div class="kite__item kite__item--left">B</div>
+  <div class="kite__item kite__item--right">C</div>
+</div>
+```
+*/
+.kite__item--fifth {
+  width: 20%;
+}
+
+.kite__item--fourth {
+  width: 25%;
+}
+
+.kite__item--third {
+  width: 33.333%;
+}
+
+.kite__item--half {
+  width: 50%;
+}
+
+.kite__item--full {
+  width: 100%;
+}
+
+/*
+## Justify align items
+
+```html
+<div class="kite kite--justify">
+  <div class="kite__item">A</div>
+  <div class="kite__item">B</div>
+  <div class="kite__item">C</div>
+</div>
+```
+*/
+.kite--justify {
+  display: block;
+  text-align: justify;
+  text-justify: distribute-all-lines;
+}
+.kite--justify:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+/*
+## Fill items
+
+```html
+<div class="kite kite--justify">
+  <div class="kite__item">A</div>
+  <div class="kite__item">B</div>
+  <div class="kite__item">C</div>
+</div>
+```
+*/
+.kite--fill.is-equalize {
+  table-layout: fixed;
+}
+.kite--fill > .kite__item {
+  display: table-cell;
+}
+
+/*
+## Absolute position items
+
+```html
+<div style="position:relative">
+  <div class="kite kite--position">
+    <div class="kite__item">A</div>
+  </div>
+</div>
+```
+*/
+.kite--position {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+.kite--position.is-position-fixed {
+  position: fixed;
+}
+.kite--position:after {
+  display: inline-block;
+  content: "";
+  height: 100%;
+  vertical-align: middle;
+}
+.kite--position > .kite__item {
+  vertical-align: middle;
+  text-align: left;
+}
+
+/*
+## Grid layout items
+
+NOTE: this can trigger a horizontal scrollbar if the component is as wide as the viewport.
+Use padding on a container(.kite), or `overflow-x:hidden` to protect against it.
+
+```html
+<div class="kite kite--grid has-gutter">
+  <div class="kite__item is-4of12">A</div>
+  <div class="kite__item is-4of12">B</div>
+  <div class="kite__item is-4of12">C</div>
+</div>
+```
+*/
+.kite--grid > .kite__item.is-1of12 {
+  width: 8.33333%;
+}
+.kite--grid > .kite__item.is-2of12 {
+  width: 16.66667%;
+}
+.kite--grid > .kite__item.is-3of12 {
+  width: 25%;
+}
+.kite--grid > .kite__item.is-4of12 {
+  width: 33.33333%;
+}
+.kite--grid > .kite__item.is-5of12 {
+  width: 41.66667%;
+}
+.kite--grid > .kite__item.is-6of12 {
+  width: 50%;
+}
+.kite--grid > .kite__item.is-7of12 {
+  width: 58.33333%;
+}
+.kite--grid > .kite__item.is-8of12 {
+  width: 66.66667%;
+}
+.kite--grid > .kite__item.is-9of12 {
+  width: 75%;
+}
+.kite--grid > .kite__item.is-10of12 {
+  width: 83.33333%;
+}
+.kite--grid > .kite__item.is-11of12 {
+  width: 91.66667%;
+}
+.kite--grid > .kite__item.is-12of12 {
+  width: 100%;
+}
+.kite--grid.has-gutter {
+  display: block;
+  width: auto;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.kite--grid.has-gutter > .kite__item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -54px;
+}
+#root #root-footer {
+  height: 54px;
+}
+
+#footer {
+  clear: both;
+  position: relative;
+  height: 54px;
+}
+
+#root {
+  overflow-y: auto;
+}
+#root .content {
+  background-color: #eee;
+}
+
+#footer {
+  line-height: 54px;
+  text-align: center;
+  background-color: #f60;
+  font-size: 16px;
+  color: #fff;
+}
+
+/*# sourceMappingURL=demo-sticky-footer.css.map */

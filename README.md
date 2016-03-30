@@ -23,28 +23,27 @@
 1. 安装 [Node.js](https://nodejs.org/en/)
 1. 打开命令行窗口
 1. `cd 项目路径`
-1. 安装依赖: `npm install`
-1. 安装gulp: `npm install -g gulp`
-1. 启动: `gulp f5` 会自动在默认浏览器中打开导航页
+1. 安装依赖: `npm install`。（如果是开发，需要安装 Sass 和 Compass）
+1. `npm run start:server`。
 
-## 支持的任务
-* `gulp build` 构建项目：将js,css文件进行压缩,并且生成sourcemap，其压缩后的文件和image，html文件一起移动到`dist`文件夹。
-* `gulp f5` 启动一静态服务器，当`src`下的资源有变化，自动刷新浏览器
 
-## npm 任务
-* 构建: `npm run build`
-
-### 参考
-* [Why I Left Gulp and Grunt for npm Scripts](https://medium.freecodecamp.com/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.n8tjc2j5e) [中文版](http://www.infoq.com/cn/news/2016/02/gulp-grunt-npm-scripts-part2)
-* [react-slingshot](https://github.com/coryhouse/react-slingshot/blob/master/package.json)
-* [npm-scripts-demo](https://github.com/revolution-messaging/npm-scripts-demo)
+## 任务
+* 构建: `npm run build`。该命令做了以下几件事
+	* 删除 dist
+	* 将 ES6 代码编译成 ES5 代码，合并（如果有需要的话），并压缩。用 Webpack + Babel 来实现的。
+	* 将 Sass 代码编译成 CSS 代码，并压缩。用 Compass 来实现。
+	* 将 src 目录下的除了 ES6 和 Sass 代码外的其他代码都移动到 dist 目录下。
+* 运行: `npm run start`。该命令做了以下几件事
+	* 启动静态服务器
+	* 监视 Sass 文件的变化。变化时，编译生成 CSS。
+	* 监视 ES6 文件的变化。变化时，编译生成 ES5 的 JS。
 
 ## 使用的技术
 * 任务管理(Task Runners)
 	* Gulp
 * CSS 预编译(CSS Preprocessor)
 	* [Sass](http://sass-lang.com/)
-		* [Compass](http://compass-style.org/) 基于Sass的框架
+	* [Compass](http://compass-style.org/) 基于Sass的框架
 * CSS
 	* [kitecss](http://hiloki.github.io/kitecss/) 灵活的CSS布局框架。基于`display:inline-block`
 	* [debugCSS](https://github.com/yahoo/debugCSS) 对HTML的验证
@@ -62,4 +61,7 @@
 * [BEM](https://en.bem.info/)
 * [移动开发规范概述](http://alloyteam.github.io/Spirit/modules/Standard/index.html)
 * [tooling](https://github.com/egoist/tooling)
+* [Why I Left Gulp and Grunt for npm Scripts](https://medium.freecodecamp.com/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8#.n8tjc2j5e) [中文版](http://www.infoq.com/cn/news/2016/02/gulp-grunt-npm-scripts-part2)
+* [react-slingshot](https://github.com/coryhouse/react-slingshot/blob/master/package.json)
+* [npm-scripts-demo](https://github.com/revolution-messaging/npm-scripts-demo)
 

@@ -3,19 +3,27 @@
   "version": "0.1.0",
   "description": "a front end scaffold project",
   "main": "",
-  "scripts":{
-    "prebuild": "rm -r dist",
+  "scripts": {
+    "prebuild": "npm run remove-dist",
     "build": "npm run build:css && npm run build:js && npm run moveAssets",
-    "build:js": "webpack -d",
+    "build:js": "node_modules/.bin/webpack -p",
     "build:css": "cd src && compass compile",
-    "moveAssets": "gulp"
+    "moveAssets": "node_modules/.bin/gulp",
+    "remove-dist": "node_modules/.bin/rimraf ./dist",
+    "start": "node_modules/.bin/npm-run-all --parallel start:server watch:sass watch:es6",
+    "watch:sass": "compass watch",
+    "watch:es6": "node_modules/.bin/webpack --watch -d",
+    "start:server": "node_modules/.bin/anywhere 1520 -d src"
   },
   "repository": "https://github.com/iamjoel/front-end-scaffold",
   "devDependencies": {
     "gulp": "3.8.11",
+    "rimraf": "2.5.0",
+    "npm-run-all": "1.6.0",
     "babel-core": "6.3.26",
     "babel-loader": "6.2.4",
     "babel-preset-es2015": "6.3.13",
-    "webpack": "1.12.14"
+    "webpack": "1.12.14",
+    "anywhere": "1.2.0"
   }
 }
