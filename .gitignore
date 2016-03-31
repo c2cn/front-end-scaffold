@@ -31,3 +31,7 @@ node_modules
 
 # builded code fold
 dist
+
+# soucemap
+*.css.map
+*.js.map
