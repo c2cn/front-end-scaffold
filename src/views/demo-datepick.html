@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>日历插件使用</title>
+    <link rel="stylesheet" href="../assets/vendor/font-awesome-4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/vendor/foundation-datepicker/foundation-datepicker.css">
+    <style>
+    .datepicker{
+      display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <label for="">
+      选日期
+      <input type="text" class="datepicker">
+    </label>
+    <script src="../assets/vendor/jquery.js"></script>
+    <script src="../assets/vendor/foundation-datepicker/foundation-datepicker.min.js"></script>
+    <script src="../assets/vendor/foundation-datepicker/locales/foundation-datepicker.zh-CN.js"></script>
+    <script>
+    $(document).ready(function() {
+      //文档 http://foundation-datepicker.peterbeno.com/example.html
+        $('.datepicker').fdatepicker({
+            format: 'yyyy/mm/dd',
+            disableDblClickSelection: true,
+            language: 'zh-CN',
+            // endDate: new Date()
+        });
+
+    });
+    </script>
+</body>
+
+</html>
