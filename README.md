@@ -9,10 +9,11 @@
 	* 该项目的UI的使用Demo页 (TODO)
 	* IDE中适用的该项目的一些代码片段(如 Sublime 的 Snippets ) -> 快速生代码 (TODO)
 	* Ajax接口的模拟的快速生成 (TODO)
-	* 切图：使用PS的拓展，一键切图工具[cutterman](http://www.cutterman.cn/cutterman/feature)
-	* 图片精灵: Compass支持自动生成图片精灵
+  * 给的 Psd 文件上最好是标注好各种尺寸的。一个标尺寸的 Photoshop 的插件 [Size Marks](https://github.com/romashamin/Size-Marks-PS) 。
+	* 切图：使用 Photoshop 的插件，一键切图工具[cutterman](http://www.cutterman.cn/cutterman/feature)
+	* 优先使用图标字体。如果实在要做图片精灵， Compass支持自动生成图片精灵
 * 项目上线前
-	* 对资源进行压缩，合并等。命令类似 `gulp build`
+	* 对资源进行压缩，合并等。
 
 ## 如何高质量
 * 依赖的第三方插件会用固定版本。
