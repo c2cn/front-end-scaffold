@@ -1,0 +1,16 @@
+@charset "utf-8";
+@mixin btn($width, $height, $bgColor, $color: #fff, $borderRadius: 0) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+  padding: 0;
+  text-align: center;
+  background-color: $bgColor;
+  color: $color;
+  cursor: pointer;
+  border-radius: $borderRadius;
+  /* 对按钮元素的重置*/
+  border:none;
+  /* 对a链接的重置*/
+  text-decoration: none;
+}

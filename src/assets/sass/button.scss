@@ -1,0 +1,8 @@
+@import "mixins/button";
+.btn{
+  display: block;
+  @include btn(200px, 26px, #56a9e3, #fff, 10px);
+  &--default{
+
+  }
+}
