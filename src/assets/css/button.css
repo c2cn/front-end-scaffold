@@ -1,19 +1,38 @@
 @charset "UTF-8";
+.btn, .block-btn {
+  /* 对按钮元素的重置*/
+  border: none;
+  /* 对a链接的重置*/
+  text-decoration: none;
+  outline: none;
+}
+
+/* 定宽按钮 */
 .btn {
+  padding: 6px 3px;
+  font-size: 14px;
+  border-radius: 0;
+  background-color: #56a9e3;
+  color: #fff;
+}
+.btn:not(:disabled):hover, .btn:not(:disabled):focus {
+  background-color: #7dbdea;
+}
+.btn:not(:disabled):active, .btn:not(:disabled) .button--active {
+  background-color: #2f95dc;
+}
+
+.block-btn {
   display: block;
-  width: 200px;
-  height: 26px;
-  line-height: 26px;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
   padding: 0;
   text-align: center;
   background-color: #56a9e3;
   color: #fff;
   cursor: pointer;
-  border-radius: 10px;
-  /* 对按钮元素的重置*/
-  border: none;
-  /* 对a链接的重置*/
-  text-decoration: none;
+  border-radius: 0;
 }
 
 /*# sourceMappingURL=button.css.map */

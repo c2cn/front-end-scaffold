@@ -1,8 +1,13 @@
+@charset "utf-8";
 @import "mixins/button";
+// 非定宽按钮
 .btn{
-  display: block;
-  @include btn(200px, 26px, #56a9e3, #fff, 10px);
-  &--default{
+  @extend %button-reset;
+  @include button-size(6px, 3px, 14px);
+  @include button-color(#56a9e3);
+}
 
-  }
+// 定宽按钮
+.block-btn{
+  @include block-btn(100px, 30px,#56a9e3);
 }

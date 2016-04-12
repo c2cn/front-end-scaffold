@@ -1,5 +1,38 @@
 @charset "utf-8";
-@mixin btn($width, $height, $bgColor, $color: #fff, $borderRadius: 0) {
+
+@mixin button-size($padding-vertical, $padding-horizontal, $font-size:12px, $border-radius:0) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+$color-tint: 9;
+@mixin button-color($bg-color, $fg-color: #fff) {
+  background-color: $bg-color;
+  color: $fg-color;
+
+  &:not(:disabled) {
+    &:hover, &:focus {
+      background-color: lighten($bg-color, $color-tint);
+    }
+
+    &:active, .button--active {
+      background-color: darken($bg-color, $color-tint);
+    }
+  }
+}
+
+%button-reset{
+    /* 对按钮元素的重置*/
+  border:none;
+  /* 对a链接的重置*/
+  text-decoration: none;
+  outline: none;
+}
+
+/* 定宽按钮 */
+@mixin block-btn($width, $height, $bgColor, $color: #fff, $display: block, $borderRadius: 0) {
+  display: $display;
+  @extend %button-reset;
   width: $width;
   height: $height;
   line-height: $height;
@@ -9,8 +42,4 @@
   color: $color;
   cursor: pointer;
   border-radius: $borderRadius;
-  /* 对按钮元素的重置*/
-  border:none;
-  /* 对a链接的重置*/
-  text-decoration: none;
 }
