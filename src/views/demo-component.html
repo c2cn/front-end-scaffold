@@ -2,36 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>一些组件</title>
-    <link rel="stylesheet" href="../assets/css/common.css">
-    <link rel="stylesheet" href="../assets/css/component.css">
+  <meta charset="UTF-8">
+  <title>一些组件</title>
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <!-- <link rel="stylesheet" href="../assets/css/component.css"> -->
+  <link rel="stylesheet" href="../../assets/css/element/button.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <ul class="side-nav col-md-3">
-                <li class="side-nav__header"></li>
-                <li class="side-nav__item">分页</li>
-            </ul>
-
-            <div class="col-md-9">
-                <h2>分页</h2>
-                <ul class="paging">
-                    <li class="disabled"><a href="javascript:void(0);" class="first-page">首页</a></li>
-                    <li class="disabled"><a href="javascript:void(0);" class="prev-page">上一页</a></li>
-                    <li class="current"><a href="javascript:void(0);" class="normal-page" data-id="1">1</a></li>
-                    <li><a href="javascript:void(0);" class="normal-page" data-id="2">2</a></li>
-                    <li><a href="javascript:void(0);" class="normal-page" data-id="3">3</a></li>
-                    <li><a href="javascript:void(0);" class="normal-page" data-id="4">4</a></li>
-                    <li><a href="javascript:void(0);" class="next-page">下一页</a></li>
-                    <li><a href="javascript:void(0);" class="last-page">末页</a></li>
-                </ul>
-            </div>
-        </div>
-
+  <div class="container">
+    <div class="item">
+      <h2>预定义样式</h2>
+      <button class="btn" type="button">默认</button>
+      <!-- <a href="###" class="btn">默认</a>
+    <input type="button" class="btn" value="默认"> -->
+      <button class="btn btn--primary">首选项</button>
+      <button class="btn btn--success">成功</button>
+      <button class="btn btn--info">信息</button>
+      <button class="btn btn--warning">警告</button>
+      <button class="btn btn--danger">危险</button>
     </div>
+    <div class="item">
+      <h2>不同尺寸</h2>
+      <button class="btn btn--large btn--primary">大按钮</button>
+      <button class="btn btn--primary">中按钮</button>
+      <button class="btn btn--small btn--primary">小按钮</button>
+    </div>
+    <div class="item">
+      <h2>大小不随着的不同尺寸</h2>
+      <button class="btn btn--fixed-large">大按钮</button>
+      <button class="btn btn--fixed-large">我是大按钮</button>
+      <button class="btn btn--fixed btn--primary">中按钮</button>
+      <button class="btn btn--fixed-small btn--primary">小按钮</button>
+    </div>
+    <div class="item">
+      <h2>禁用状态</h2>
+      <button class="btn" type="button" disabled>默认</button>
+      <button class="btn btn--primary" disabled>首选项</button>
+      <button class="btn btn--success" disabled>成功</button>
+      <button class="btn btn--info" disabled>信息</button>
+      <button class="btn btn--warning" disabled>警告</button>
+      <button class="btn btn--danger" disabled>危险</button>
+    </div>
+   <!--  <div class="row">
+      <ul class="side-nav col-md-3">
+        <li class="side-nav__header"></li>
+        <li class="side-nav__item">分页</li>
+      </ul>
+      <div class="col-md-9">
+        <h2>分页</h2>
+        <ul class="paging">
+          <li class="disabled"><a href="javascript:void(0);" class="first-page">首页</a></li>
+          <li class="disabled"><a href="javascript:void(0);" class="prev-page">上一页</a></li>
+          <li class="current"><a href="javascript:void(0);" class="normal-page" data-id="1">1</a></li>
+          <li><a href="javascript:void(0);" class="normal-page" data-id="2">2</a></li>
+          <li><a href="javascript:void(0);" class="normal-page" data-id="3">3</a></li>
+          <li><a href="javascript:void(0);" class="normal-page" data-id="4">4</a></li>
+          <li><a href="javascript:void(0);" class="next-page">下一页</a></li>
+          <li><a href="javascript:void(0);" class="last-page">末页</a></li>
+        </ul>
+      </div>
+    </div> -->
+  </div>
 </body>
 
 </html>

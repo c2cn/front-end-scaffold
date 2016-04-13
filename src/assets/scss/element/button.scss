@@ -1,0 +1,64 @@
+@charset "utf-8";
+@import "../mixins/button";
+@import "vars";
+.btn {
+  @extend %button-reset;
+  @include button-size($padding-base-horizontal, $padding-base-vertical, 14px);
+  @include button-color($btn-default-bg, $btn-default-color);
+  cursor: pointer;
+  // 禁用
+  &:disabled {
+    background-color: $gray-light;
+    @include button-color(lighten($btn-primary-bg, 10%));
+    cursor: not-allowed;
+  }
+  // 不同的皮肤
+  &--primary {
+    @include button-color($btn-primary-bg);
+    &:disabled {
+      @include button-color(lighten($btn-primary-bg, 10%));
+    }
+  }
+  &--success {
+    @include button-color($btn-success-bg);
+    &:disabled {
+      @include button-color(lighten($btn-success-bg, 10%));
+    }
+  }
+  &--info {
+    @include button-color($btn-info-bg);
+    &:disabled {
+      @include button-color(lighten($btn-info-bg, 10%));
+    }
+  }
+  &--warning {
+    @include button-color($btn-warning-bg);
+    &:disabled {
+      @include button-color(lighten($btn-warning-bg, 10%));
+    }
+  }
+  &--danger {
+    @include button-color($btn-danger-bg);
+    &:disabled {
+      @include button-color(lighten($btn-danger-bg, 10%));
+    }
+  }
+  // 不同尺寸
+  &--large {
+    @include button-size($padding-large-horizontal, $padding-large-vertical, 14px);
+  }
+  &--small {
+    @include button-size($padding-small-horizontal, $padding-small-vertical, 14px);
+  }
+  // 固定大小按钮
+  &--fixed {
+    display: inline-block;
+    @include btn-fixed-size($btn-fixed-base-width, $btn-fixed-base-height);
+    &-large {
+      @include btn-fixed-size($btn-fixed-large-width, $btn-fixed-large-height);
+    }
+    &-small {
+      @include btn-fixed-size($btn-fixed-small-width, $btn-fixed-small-height);
+    }
+  }
+}

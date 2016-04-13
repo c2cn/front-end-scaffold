@@ -1,0 +1,145 @@
+@charset "UTF-8";
+.btn {
+  background-image: none;
+  border: none;
+  text-decoration: none;
+  outline: none;
+}
+
+/* 宽高固定的按钮 */
+.btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 0;
+  background-color: #e0e0e0;
+  color: #333;
+  cursor: pointer;
+}
+.btn:not(:disabled):hover, .btn:not(:disabled):focus {
+  background-color: #bababa;
+  color: #333;
+}
+.btn:disabled {
+  background-color: #999;
+  background-color: #4f93ce;
+  color: #fff;
+  cursor: not-allowed;
+}
+.btn:disabled:not(:disabled):hover, .btn:disabled:not(:disabled):focus {
+  background-color: #2d6da3;
+  color: #fff;
+}
+.btn--primary {
+  background-color: #337ab7;
+  color: #fff;
+}
+.btn--primary:not(:disabled):hover, .btn--primary:not(:disabled):focus {
+  background-color: #22527b;
+  color: #fff;
+}
+.btn--primary:disabled {
+  background-color: #4f93ce;
+  color: #fff;
+}
+.btn--primary:disabled:not(:disabled):hover, .btn--primary:disabled:not(:disabled):focus {
+  background-color: #2d6da3;
+  color: #fff;
+}
+.btn--success {
+  background-color: #5cb85c;
+  color: #fff;
+}
+.btn--success:not(:disabled):hover, .btn--success:not(:disabled):focus {
+  background-color: #3d8b3d;
+  color: #fff;
+}
+.btn--success:disabled {
+  background-color: #80c780;
+  color: #fff;
+}
+.btn--success:disabled:not(:disabled):hover, .btn--success:disabled:not(:disabled):focus {
+  background-color: #4cae4c;
+  color: #fff;
+}
+.btn--info {
+  background-color: #5bc0de;
+  color: #fff;
+}
+.btn--info:not(:disabled):hover, .btn--info:not(:disabled):focus {
+  background-color: #28a1c5;
+  color: #fff;
+}
+.btn--info:disabled {
+  background-color: #85d0e7;
+  color: #fff;
+}
+.btn--info:disabled:not(:disabled):hover, .btn--info:disabled:not(:disabled):focus {
+  background-color: #46b8da;
+  color: #fff;
+}
+.btn--warning {
+  background-color: #f0ad4e;
+  color: #fff;
+}
+.btn--warning:not(:disabled):hover, .btn--warning:not(:disabled):focus {
+  background-color: #df8a13;
+  color: #fff;
+}
+.btn--warning:disabled {
+  background-color: #f4c37d;
+  color: #fff;
+}
+.btn--warning:disabled:not(:disabled):hover, .btn--warning:disabled:not(:disabled):focus {
+  background-color: #eea236;
+  color: #fff;
+}
+.btn--danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+.btn--danger:not(:disabled):hover, .btn--danger:not(:disabled):focus {
+  background-color: #b52b27;
+  color: #fff;
+}
+.btn--danger:disabled {
+  background-color: #e27c79;
+  color: #fff;
+}
+.btn--danger:disabled:not(:disabled):hover, .btn--danger:disabled:not(:disabled):focus {
+  background-color: #d43f3a;
+  color: #fff;
+}
+.btn--large {
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 0;
+}
+.btn--small {
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 0;
+}
+.btn--fixed {
+  display: inline-block;
+  padding: 0;
+  width: 94px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+}
+.btn--fixed-large {
+  padding: 0;
+  width: 102px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.btn--fixed-small {
+  padding: 0;
+  width: 90px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=button.css.map */

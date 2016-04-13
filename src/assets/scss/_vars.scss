@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+// 颜色
+$gray-base:              #000;
+$gray-dark:              #333;
+$gray:                   #666;
+$gray-light:             #999;
+
+// 参考 Bootstrap
+$brand-primary:         #337ab7;
+$brand-success:         #5cb85c;
+$brand-info:            #5bc0de;
+$brand-warning:         #f0ad4e;
+$brand-danger:          #d9534f;
+
+$body-bg:               #fff;
+$text-color:            #333 !default; // 文字默认颜色
+$link-color:            $brand-primary; // 链接颜色
+$link-hover-color:      darken($link-color, 15%) !default;
+
+// 字体
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-yahei:tahoma,arial,"STXihei","Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", "宋体", SimSun;
+$font-family-hei:tahoma,arial,"STXihei",SimHei,"Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", "宋体", SimSun;
+$font-family-song:tahoma,arial,"宋体", SimSun;
+
+// 尺寸
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+
+$padding-large-vertical:    10px !default;
+$padding-large-horizontal:  16px !default;
+
+$padding-small-vertical:    5px !default;
+$padding-small-horizontal:  10px !default;
+
+$padding-xs-vertical:       1px !default;
+$padding-xs-horizontal:     5px !default;
+
+$line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
+$line-height-small:         1.5 !default;
+
+$border-radius-base:        4px !default;
+$border-radius-large:       6px !default;
+$border-radius-small:       3px !default;
+
+// 按钮
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #e0e0e0 !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-fixed-base-width: 94px;
+$btn-fixed-base-height: 32px;
+$btn-fixed-large-width: 102px;
+$btn-fixed-large-height: 40px;
+$btn-fixed-small-width: 90px;
+$btn-fixed-small-height: 26px;
+
+
+
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Grid system
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px !default;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm-min !default;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+//** 是否是移动设备
+$is-mobile: true;
+//** 在 _debugCSS.scss 中会用到
+$is-valid-html: false;// _debugCSS修改中
+

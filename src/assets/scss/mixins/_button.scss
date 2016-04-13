@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+@mixin button-size( $padding-horizontal, $padding-vertical, $font-size:12px, $border-radius:0) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+@mixin button-color($bg-color, $fg-color: #fff) {
+  background-color: $bg-color;
+  color: $fg-color;
+
+  &:not(:disabled) {
+    &:hover, &:focus {
+      background-color: darken($bg-color, 15%);
+      color: $fg-color;
+    }
+  }
+}
+
+%button-reset{
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border:none;// 对按钮元素的重置
+  text-decoration: none;// 对a链接的重置
+  outline: none;
+}
+
+/* 宽高固定的按钮 */
+@mixin btn-fixed-size($width, $height) {
+  padding: 0;
+  width: $width;
+  height: $height;
+  line-height: $height;
+  text-align: center;
+}

@@ -1,15 +1,18 @@
 @charset "utf-8";
 @import "compass";
 @import "compass/layout/";
-@import "_variables";
+@import "vars";
 
-@import "compass/reset";
+// 自己来找个 reset的 todo
+// @import "compass/reset";
 *, :before, :after{// IE8+
     @include box-sizing(border-box);
 }
 html, body {
     -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    background-color: $body-bg;
 }
 html{
     /* 和算rem配合用 */
@@ -22,6 +25,13 @@ body{
 a, img {
     -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
 }
+
+a{
+  color: $link-color;
+  &:hover{
+    color: $link-hover-color;
+  }
+}
 /* 防止图片宽度太大影响布局 */
 img{
   height: auto;
@@ -29,9 +39,9 @@ img{
 }
 
 
-@import "_type";// 排版
+// @import "_type";// 排版
 
-@import "_debugCSS";// 对HTML的验证
+// @import "_debugCSS";// 对HTML的验证
 
 @mixin clearfix(){// 还有另外的几个见 http://compass-style.org/reference/compass/utilities/general/clearfix/
     @include pie-clearfix();
