@@ -1,0 +1,8 @@
+@import "../mixins/button-group";
+
+.btn-group{
+  @include btn-group;
+  &--radius{
+    @include btn-group(5px);
+  }
+}

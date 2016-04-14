@@ -1,0 +1,46 @@
+.btn-group {
+  content: "";
+  display: table;
+  clear: both;
+}
+.btn-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.btn-group > .btn {
+  float: left;
+  border-radius: 0;
+}
+.btn-group > .btn:first-child:not(:last-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.btn-group > .btn:last-child:not(:first-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-group--radius {
+  content: "";
+  display: table;
+  clear: both;
+}
+.btn-group--radius:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.btn-group--radius > .btn {
+  float: left;
+  border-radius: 0;
+}
+.btn-group--radius > .btn:first-child:not(:last-child) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.btn-group--radius > .btn:last-child:not(:first-child) {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/*# sourceMappingURL=button-group.css.map */
