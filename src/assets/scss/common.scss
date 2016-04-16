@@ -1,10 +1,10 @@
 @charset "utf-8";
+// reset
+@import "normalize";
 @import "compass";
 @import "compass/layout/";
 @import "vars";
 
-// 自己来找个 reset的 todo
-// @import "compass/reset";
 *, :before, :after{// IE8+
     @include box-sizing(border-box);
 }
