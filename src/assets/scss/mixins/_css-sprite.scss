@@ -1,14 +1,7 @@
-@charset "utf-8";
-@import "_rem";
-@import "_variables";
+@import "../rem";
+@import "../vars";
 @import "compass/utilities/";
 @import "compass/utilities/sprites";
-
-
-
-@mixin clearfix(){
-    @include pie-clearfix();
-}
 
 
 @function strip-units($number) {
@@ -47,14 +40,12 @@
 
 // 地图
 @mixin loc($x: 0, $y: 0, $itemW: $skin-ice-game-item-width) {
-	left: #{($x * $itemW)/ $pprVal}rem;
-	top: #{($y * $itemW)/ $pprVal}rem;
+  left: #{($x * $itemW)/ $pprVal}rem;
+  top: #{($y * $itemW)/ $pprVal}rem;
 }
 
 // 小人的位置
 @mixin locPeo($x: 0, $y: 0, $itemW: $skin-ice-game-item-width, $x-offset: -6, $y-offset: -35) {
-	left: #{($x * $itemW + $x-offset)/ $pprVal}rem;
-	top: #{($y * $itemW + $y-offset)/ $pprVal}rem;
+  left: #{($x * $itemW + $x-offset)/ $pprVal}rem;
+  top: #{($y * $itemW + $y-offset)/ $pprVal}rem;
 }
-
-

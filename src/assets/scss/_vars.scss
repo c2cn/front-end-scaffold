@@ -18,6 +18,8 @@ $text-color:            #333 !default; // 文字默认颜色
 $link-color:            $brand-primary; // 链接颜色
 $link-hover-color:      darken($link-color, 15%) !default;
 
+
+
 // 字体
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
@@ -60,7 +62,13 @@ $btn-fixed-large-height: 40px;
 $btn-fixed-small-width: 90px;
 $btn-fixed-small-height: 26px;
 
-
+// 表单
+$input-color:                    $gray-dark !default;
+$input-border-color:                   #ccc !default;
+$input-border-radius: 0;
+$input-height-base: 32px;
+$input-padding-vertical: 6px;
+$input-padding-horizontal: 12px;
 
 $screen-sm:                  768px !default;
 $screen-sm-min:              $screen-sm !default;

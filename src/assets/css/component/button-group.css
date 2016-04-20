@@ -1,11 +1,11 @@
 .btn-group {
-  content: "";
+  background-color: #FFF;
+}
+.btn-group:before, .btn-group:after {
+  content: " ";
   display: table;
-  clear: both;
 }
 .btn-group:after {
-  content: "";
-  display: table;
   clear: both;
 }
 .btn-group > .btn {
@@ -21,13 +21,13 @@
   border-bottom-right-radius: 0;
 }
 .btn-group--radius {
-  content: "";
+  background-color: #FFF;
+}
+.btn-group--radius:before, .btn-group--radius:after {
+  content: " ";
   display: table;
-  clear: both;
 }
 .btn-group--radius:after {
-  content: "";
-  display: table;
   clear: both;
 }
 .btn-group--radius > .btn {
