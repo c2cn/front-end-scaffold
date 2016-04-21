@@ -66,9 +66,12 @@ $btn-fixed-small-height: 26px;
 $input-color:                    $gray-dark !default;
 $input-border-color:                   #ccc !default;
 $input-border-radius: 0;
+$input-bg-disabled:              #eee !default;
 $input-height-base: 32px;
 $input-padding-vertical: 6px;
 $input-padding-horizontal: 12px;
+$cursor-disabled:                not-allowed !default;
+
 
 $screen-sm:                  768px !default;
 $screen-sm-min:              $screen-sm !default;
