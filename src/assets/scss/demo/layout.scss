@@ -1,12 +1,8 @@
 @charset "utf-8";
-@import "../common";
-@import "../kite";
+@import "../mixins/layout";
 
-h2{
-	margin: 10px 0;
-	font-size: 16px;
-	font-weight: bold;
-}
+// 一行上多个元素
+@include row('.labels', '.labels__item');
 .labels{
 	&__item{
 		font-size: 14px;
@@ -18,6 +14,8 @@ h2{
 		padding: 0 10px;
 	}
 }
+// 两端对齐
+@include space-between('.navs', '.navs__item');
 .navs{
 	&__item{
 		box-sizing: border-box;
@@ -36,18 +34,20 @@ h2{
 		}
 	}
 }
-
+// 有元素占据剩余部分
+@include item-fill('.info', '.info__item', '.info__item--fill');
+@include space-between('.info__other', '.info__other__item');
 .info{
+  &__img-wrap{
+    padding-right: 20px;
+  }
 	&__img{
-		width: 100px;
-		height: 100px;
-		margin-right: 20px;
+    display: block;
+    width: 100px;
+    height: 100px;
 	}
 	&__title{
 		font-size: 16px;
 		line-height: 1.5em;
-	}
-	&__item{
-		font-size: 14px;
 	}
 }
