@@ -20,19 +20,22 @@
 
 // 两端对齐
 @mixin space-between($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
+  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) ;
   #{$parent-selector} {
     text-align: justify;
-    font-size: 0;
     &:after {
       content: '';
       display: inline-block;
       width: 100%;
     }
   }
-  #{$item-selector} {
-    display: inline-block;
-    vertical-align: $vertical-align;
-    font-size: $font-size;
+}
+
+// 居中对齐
+@mixin space-around($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
+  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) ;
+  #{$parent-selector} {
+    text-align: center;
   }
 }
 

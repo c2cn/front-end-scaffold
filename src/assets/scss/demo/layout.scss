@@ -1,6 +1,13 @@
 @charset "utf-8";
 @import "../mixins/layout";
 
+.center-block{
+  @include center-block;
+  width: 100px;
+  height: 30px;
+  background-color: blue;
+}
+
 // 一行上多个元素
 @include row('.labels', '.labels__item');
 .labels{
@@ -15,7 +22,8 @@
 	}
 }
 // 两端对齐
-@include space-between('.navs', '.navs__item');
+@include space-between('.navs--between', '.navs__item');
+@include space-around('.navs--around', '.navs__item');
 .navs{
 	&__item{
 		box-sizing: border-box;
