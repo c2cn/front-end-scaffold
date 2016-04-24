@@ -23,6 +23,7 @@
 }
 // 两端对齐
 @include space-between('.navs--between', '.navs__item');
+// 居中对齐
 @include space-around('.navs--around', '.navs__item');
 .navs{
 	&__item{
@@ -41,7 +42,11 @@
 			text-align: center;
 		}
 	}
+  &--around .navs__item{
+    margin-right: 20px;
+  }
 }
+
 // 有元素占据剩余部分
 @include item-fill('.info', '.info__item', '.info__item--fill');
 @include space-between('.info__other', '.info__other__item');

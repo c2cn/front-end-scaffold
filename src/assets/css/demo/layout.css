@@ -76,6 +76,9 @@
 .navs__item__text {
   text-align: center;
 }
+.navs--around .navs__item {
+  margin-right: 20px;
+}
 
 .info {
   display: table;
