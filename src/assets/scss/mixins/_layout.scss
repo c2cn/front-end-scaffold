@@ -4,8 +4,8 @@
   margin-left: auto;
   margin-right: auto;
 }
-// http://kyusuf.com/post/almost-complete-guide-to-flexbox-without-flexbox
 
+// http://kyusuf.com/post/almost-complete-guide-to-flexbox-without-flexbox
 // 一行上多个元素
 @mixin row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
   #{$parent-selector} {
@@ -20,7 +20,7 @@
 
 // 两端对齐
 @mixin space-between($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
-  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) ;
+  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top);
   #{$parent-selector} {
     text-align: justify;
     &:after {
@@ -33,7 +33,7 @@
 
 // 居中对齐
 @mixin space-around($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
-  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) ;
+  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top);
   #{$parent-selector} {
     text-align: center;
   }
@@ -42,15 +42,13 @@
 // 占据剩余部分 类似 flex-grow
 @mixin item-fill($parent-selector, $item-selector, $fill-item-selector, $vertical-align: top) {
   #{$parent-selector} {
-    display: table;
+    display: table; // 兼容性相当好。IE8+ 都支持 http://caniuse.com/#feat=css-table
   }
   #{$item-selector} {
-    display: table-cell;
+    display: table-cell; // 兼容性相当好。IE8+ 都支持 http://caniuse.com/#feat=css-table
     vertical-align: $vertical-align;
   }
   #{$fill-item-selector} {
     width: 100%;
   }
 }
-
-
