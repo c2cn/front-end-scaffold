@@ -22,9 +22,9 @@
 	}
 }
 // 两端对齐
-@include space-between('.navs--between', '.navs__item');
+@include justify-blocks('.navs--between', '.navs__item');
 // 居中对齐
-@include space-around('.navs--around', '.navs__item');
+@include center-blocks('.navs--around', '.navs__item');
 .navs{
 	&__item{
 		box-sizing: border-box;
@@ -49,7 +49,7 @@
 
 // 有元素占据剩余部分
 @include item-fill('.info', '.info__item', '.info__item--fill');
-@include space-between('.info__other', '.info__other__item');
+@include justify-blocks('.info__other', '.info__other__item');
 .info{
   &__img-wrap{
     padding-right: 20px;

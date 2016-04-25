@@ -1,8 +1,30 @@
 @charset "utf-8";
+// 单个块级元素的居中
 @mixin center-block() {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+// 多个块级元素的居中
+@mixin center-blocks($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
+  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top);
+  #{$parent-selector} {
+    text-align: center;
+  }
+}
+
+// 两端对齐
+@mixin justify-blocks($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
+  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top);
+  #{$parent-selector} {
+    text-align: justify;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+  }
 }
 
 // http://kyusuf.com/post/almost-complete-guide-to-flexbox-without-flexbox
@@ -15,27 +37,6 @@
     display: inline-block;
     vertical-align: $vertical-align;
     font-size: $font-size;
-  }
-}
-
-// 两端对齐
-@mixin space-between($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
-  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top);
-  #{$parent-selector} {
-    text-align: justify;
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 100%;
-    }
-  }
-}
-
-// 居中对齐
-@mixin space-around($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top) {
-  @include row($parent-selector, $item-selector, $font-size: 12px, $vertical-align: top);
-  #{$parent-selector} {
-    text-align: center;
   }
 }
 
