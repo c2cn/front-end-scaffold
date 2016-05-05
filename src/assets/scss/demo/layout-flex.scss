@@ -1,0 +1,66 @@
+@charset "utf-8";
+@import "../mixins/layout-flex";
+
+.center-block{
+  @include center-block;
+  width: 100px;
+  height: 30px;
+  background-color: blue;
+}
+
+// 一行上多个元素
+.labels{
+  @include row;
+  &__item{
+    font-size: 14px;
+    height: 1.5em;
+    line-height: 1.5em;
+    margin-right: 10px;
+    border: 1px solid #3892f5;
+    color: #3892f5;
+    padding: 0 10px;
+  }
+}
+// 两端对齐
+@include justify-blocks('.navs--between');
+// 居中对齐
+@include center-blocks('.navs--around');
+.navs{
+  &__item{
+    box-sizing: border-box;
+    padding: 15px;
+    width: 200px;
+    border: 1px solid #f00;
+    &__pic{
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+    }
+    &__text{
+      text-align: center;
+    }
+  }
+  &--around .navs__item{
+    margin-right: 20px;
+  }
+}
+
+// 有元素占据剩余部分
+@include item-fill('.info', '.info__item--fill');
+@include justify-blocks('.info__other');
+.info{
+  &__img-wrap{
+    padding-right: 20px;
+  }
+  &__img{
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
+  &__title{
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+}

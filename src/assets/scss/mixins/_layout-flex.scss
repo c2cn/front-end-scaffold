@@ -1,0 +1,46 @@
+@charset "utf-8";
+// 用 flex 来实现 lauyoyt
+// 单个块级元素的居中
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// 多个块级元素的居中
+@mixin center-blocks($parent-selector) {
+  #{$parent-selector} {
+    @include row;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+
+// 两端对齐
+@mixin justify-blocks($parent-selector) {
+  #{$parent-selector} {
+    @include row;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+// 一行上多个元素
+@mixin row() {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+// 占据剩余部分 类似 flex-grow
+@mixin item-fill($parent-selector,  $fill-item-selector) {
+  #{$parent-selector} {
+    @include row;
+  }
+  #{$fill-item-selector} {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+}
