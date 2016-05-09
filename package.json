@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "",
   "version": "0.1.0",
   "description": "a front end scaffold project",
